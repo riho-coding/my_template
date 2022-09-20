@@ -1,0 +1,38 @@
+// **
+// * Flexbox
+// *
+@mixin flex($justify-content: unset, $align-items: unset) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// **
+// * clearfix
+// *
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+// **
+// * hover & focus
+// *
+@mixin hover($ie: false) {
+  &:focus {
+    @content;
+  }
+  @media print, (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+  @if $ie {
+    @at-root .ua-ie &:hover {
+      @content;
+    }
+  }
+}

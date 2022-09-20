@@ -1,0 +1,40 @@
+@use '../global' as *;
+
+/**
+ * base
+ */
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: $text-color;
+  font-family: $font-jp;
+  font-feature-settings: 'palt';
+  line-height: 1.5;
+  width: 1920px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// テキスト選択時の文字色・背景色
+::selection {
+}
+
+// スクロールバー
+::-webkit-scrollbar {
+}
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb {
+}

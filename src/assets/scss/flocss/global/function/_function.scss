@@ -1,0 +1,22 @@
+@use 'sass:math';
+
+// 値から単位を削除する
+@function removeUnit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+// remをpxのように使う
+$base-font-size: 16;
+
+@function rem($rem-font-size) {
+  @return math.div($rem-font-size, $base-font-size) * 1rem;
+}
+
+// vwをpxのように使う
+@function vw($vw-font-size, $viewport: 1280px) {
+  $per: math.div(removeUnit($vw-font-size), removeUnit($viewport));
+  @return $per * 100vw;
+}

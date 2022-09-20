@@ -1,0 +1,10 @@
+@use '../global' as *;
+
+/**
+ * l-hero
+ */
+
+.l-hero {
+  // ヒーローヘッダーを画面の高さいっぱいに表示する
+  min-height: calc(var(--vh, 1vh) * 100);
+}

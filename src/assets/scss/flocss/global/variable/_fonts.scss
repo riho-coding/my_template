@@ -1,0 +1,17 @@
+// 日本語フォント
+$Noto-Sans-jp: 'Noto Sans JP';
+
+// 英語フォント
+$Roboto: 'Roboto';
+$Montserrat: 'Montserrat';
+
+// サブセットフォント
+$sans-serif: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic', Meiryo, sans-serif;
+$serif: '游明朝', YuMincho, 'Hiragino Mincho ProN W3', 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝',
+  serif;
+
+// Japanese
+$font-jp: $sans-serif;
+
+// English
+$font-en-primary: $Roboto, $Montserrat;

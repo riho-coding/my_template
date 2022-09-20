@@ -1,0 +1,32 @@
+@use '../global' as *;
+
+/**
+ * l-header
+ */
+
+.l-header {
+  padding: 20px 0;
+
+  &__inner {
+    display: grid;
+    place-items: center;
+    width: min(100% - 80px, 1280px);
+    margin-inline: auto;
+  }
+
+  &__title {
+    font-size: rem(40);
+    text-align: center;
+  }
+
+  &__nav {
+    margin-top: 20px;
+    @include flex(space-between, center);
+  }
+
+  &__nav-item {
+    + .l-header__nav-item {
+      margin-left: 40px;
+    }
+  }
+}

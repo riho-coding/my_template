@@ -1,0 +1,26 @@
+@use '../global' as *;
+
+/**
+ * swiper
+ */
+
+// **
+// * 共通スタイル
+// *
+
+// ボタンのスタイル
+.swiper-button-prev,
+.swiper-button-next {
+}
+
+// ←
+.swiper-button-prev {
+  &::after {
+  }
+}
+
+// →
+.swiper-button-next {
+  &::after {
+  }
+}

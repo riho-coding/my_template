@@ -1,0 +1,13 @@
+@use '../global' as *;
+
+/**
+ * l-footer
+ */
+
+.l-footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  &__text {
+    text-align: center;
+  }
+}
