@@ -1,0 +1,29 @@
+//- _nav.pug
+
+-
+	const nav = {
+		top : {
+			name : "top",
+			url :"/"
+		},
+		lower : {
+			name : "lower",
+			url : "/lower-page/"
+		}
+	};
+	function currentCheck(i){
+		if ( i == page )
+			return "-current";
+		else
+			return "";
+	};
+
+//- グローバルナビゲーション
+
+mixin global_navigation(current)
+	nav.l-header__nav-area
+		ul.l-header__nav
+			each item in nav
+				li(class=`l-header__nav-item ${currentCheck(item.name)}`)
+					a(class="u-uppercase" href=item.url) #{item.name}
+

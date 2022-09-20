@@ -1,0 +1,43 @@
+//- data/_data.pug
+
+//- headタグ内に記述する情報
+
+//- 全ページ共通情報
+-
+	const site = {
+		"faviconPath": "",
+		"faviconPathForApp": "",
+		"url": "",
+		"name": "",
+		"img": "",
+		"imgWidth": "",
+		"imgHeight": "",
+		"color": "",
+		"lightModeColor": "",
+		"darkModeColor": "",
+	};
+
+//- フォント読み込み
+-
+	const fonts = {
+		"googleFont": "https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+JP:wght@400;700&display=swap",
+	};
+
+//- ページ別情報
+-
+	const meta = {
+		"top": {
+			"slug":"/",
+			"title": "TOP Page | トップページのタイトル",
+			"type": "website",
+			"desc": "TOPページの説明",
+			"path": "./",
+		},
+		"lower": {
+			"slug":"/lower-page/",
+			"title": "Lower Page | 下層ペー	ジのタイトル",
+			"type": "article",
+			"desc": "Lowerページの説明",
+			"path": "../",
+		},
+	};

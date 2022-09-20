@@ -1,0 +1,35 @@
+//- head
+head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + meta[page]["type"] + ": http://ogp.me/ns/" + meta[page]["type"] + "#")
+	meta(charset="UTF-8")
+	meta(http-equiv="X-UA-Compatible" content="IE=edge")
+	meta(name="format-detection" content="telephone=no")
+	meta(name="viewport" content="width=device-width, initial-scale=1.0")
+	meta(name="robots" content="noindex, nofollow")
+	//- Icon
+	link(rel="icon" href=site["faviconPath"] sizes="64x64")
+	link(rel="apple-touch-icon" href=site["faviconPathForApp"])
+	//- OGP
+	meta(property="og:url", content=site["url"] + meta[page]["slug"])
+	meta(property="og:title", content=meta[page]["title"])
+	meta(property="og:type", content=meta[page]["type"])
+	meta(property="og:site_name", content=site["name"])
+	meta(property="og:description", content=meta[page]["desc"])
+	meta(property="og:image" content=site["img"])
+	meta(property="og:image:width" content=site["imgWidth"])
+	meta(property="og:image:height" content=site["imgHeight"])
+	meta(property="og:local" content="ja_JP")
+	//- Site Base
+	title=meta[page]["title"]
+	meta(name="description" content=meta[page]["desc"])
+	meta(name="theme-color" content=site["color"])
+	meta(name="theme-color" media="(prefers-color-scheme: light)" content=site["lightModeColor"])
+	meta(name="theme-color" media="(prefers-color-scheme: dark)" content=site["darkModeColor"])
+	//- Font
+	link(rel="preconnect" href="https://fonts.googleapis.com")
+	link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous")
+	link(href=fonts["googleFont"] rel="preload" as="style")
+	link(href=fonts["googleFont"] rel="stylesheet" media="print" onload="this.media='all'")
+	noscript
+		link(href=fonts["googleFont"] rel="stylesheet")
+	//- CSS
+	link(rel="stylesheet" href=meta[page]["path"] + "css/style.min.css" type="text/css" media='all')

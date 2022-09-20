@@ -1,0 +1,58 @@
+//- _picture.pug
+
+//- Retina判定 => srcset="等倍画像, 2倍画像 2x"
+
+//- オプション項目
+	"className" : ""
+	"imgName": ""
+	"alt": ""
+	"extension": ""
+	"path": ""
+	"mediaQuery": ""
+	"imgWidth": ""
+	"imgHeight": ""
+	"imgWidthMobile": ""
+	"imgHeightMobile": ""
+
+mixin picture(option)
+	- option = option || {};
+	picture(class=option.className)
+		//- 【PC】WebP対応
+		source(
+			type="image/webp",
+			media="(min-width: " + (option.mediaQuery || 768) + "px)",
+			srcset=option.path + "img/" + option.imgName + ".webp" + ", " + option.path + "img/" + option.imgName + "@2x.webp 2x",
+			width=option.imgWidth,
+			height=option.imgHeight,
+			)
+		//- 【PC】WebP非対応
+		source(
+			media="(min-width: " + (option.mediaQuery || 768) + "px)",
+			srcset=option.path + "img/" + option.imgName + "." + option.extension + ", " + option.path + "img/" + option.imgName + "@2x." + option.extension + " 2x",
+			width=option.imgWidth,
+			height=option.imgHeight,
+		)
+		//- 【モバイル】WebP対応
+		source(
+			type="image/webp",
+			media="(max-width: " + (option.mediaQuery || 767) + "px)",
+			srcset=option.path + "img/" + option.imgName + "_mb.webp" + ", " + option.path + "img/" + option.imgName + "_mb@2x.webp 2x",
+			width=option.imgWidthMobile,
+			height=option.imgHeightMobile,
+		)
+		//- 【モバイル】WebP非対応
+		source(
+			media="(max-width: " + (option.mediaQuery || 767) + "px)",
+			srcset=option.path + "img/" + option.imgName + "_mb." + option.extension + ", " + option.path + "img/" + option.imgName + "_mb@2x." + option.extension + " 2x",
+			width=option.imgWidthMobile,
+			height=option.imgHeightMobile,
+		)
+		//- 【pictureタグ非対応・レイアウトシフト回避】
+		img(
+			src=option.path + "img/" + option.imgName + "." + option.extension,
+			width=option.imgWidth,
+			height=option.imgHeight,
+			alt=option.alt,
+			decoding="async",
+			loading="lazy",
+			)

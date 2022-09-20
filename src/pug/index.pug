@@ -1,0 +1,29 @@
+//- index.pug
+
+extends ./layout/_template
+
+block variable
+	- const page = 'top';
+	- const path = "./";
+
+block global_navigation
+	include ./mixin/_nav
+	+global_navigation(top)
+
+block main
+	include ./mixin/_picture
+	main.l-main
+		.p-index-fv
+			+picture({
+				"className" : "p-index-fv__visual",
+				"imgName": "index",
+				"alt": "メインビジュアルの画像",
+				"extension": "jpg",
+				"path": "./",
+				"mediaQuery": "900",
+				"imgWidth": "4",
+				"imgHeight": "3",
+				"imgWidthMobile": "16",
+				"imgHeightMobile": "9",
+			})
+
