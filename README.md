@@ -16,17 +16,18 @@ $ npx gulp
 - ブラウザ自動リロード
 - ファイル監視
 
+
+### ファイル監視を実行する
 ```
 $ npx gulp watch
 ```
-- ファイル監視を実行する
 
+### Pug・SCSS・画像・フォントファイルのコンパイル・圧縮を行う
 ```
 $ npx gulp compile
 ```
-- Pug・SCSS・画像・フォントファイルのコンパイル・圧縮を行う
 
+### ESLintとPrettierを実行する
 ```
 $ npm run format
 ```
-- ESLintとPrettierを実行する
