@@ -16,7 +16,6 @@ const gulp = require('gulp'),
   notify = require('gulp-notify'), // Error notification
   browserSync = require('browser-sync').create(),
   minCSS = require('gulp-clean-css'), // Compress CSS file
-  uglify = require('gulp-uglify'), // Compress JS file
   rename = require('gulp-rename'), // Rename compressed file
   pug = require('gulp-pug'), // Pug
   HTMLBeautify = require('gulp-html-beautify'), // Format HTML
