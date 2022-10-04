@@ -1,3 +1,5 @@
+const { tree } = require('gulp');
+
 module.exports = {
   root: true,
   extends: ['stylelint-config-standard', 'stylelint-config-recess-order', 'stylelint-config-standard-scss', 'stylelint-config-prettier'],
@@ -20,7 +22,7 @@ module.exports = {
     'declaration-block-trailing-semicolon': 'always',
     'declaration-colon-space-before': 'never',
     'declaration-colon-space-after': 'always',
-    'number-leading-zero': 'never',
+    'number-leading-zero': 'always',
     'font-family-name-quotes': 'always-where-recommended',
     'comment-whitespace-inside': 'always',
     'comment-empty-line-before': 'always',
@@ -31,5 +33,20 @@ module.exports = {
     'media-feature-parentheses-space-inside': 'always',
     'media-feature-colon-space-before': 'never',
     'media-feature-colon-space-after': 'always',
+    // SCSS
+    'no-descending-specificity': null,
+    'max-nesting-depth': [
+      2, // 孫階層まで許容する
+      {
+        ignoreAtRules: ['each', 'media', 'supports', 'include'],
+      },
+    ],
+    'selector-id-pattern': null, // idでkebab-case以外も許容する
+    'selector-class-pattern': null, // classでkebab-case以外も許容する
+    'keyframes-name-pattern': null, // keyframesでkebab-case以外も許容する
+    'at-mixin-pattern': null, // mixinでkebab-case以外も許容する
+    'dollar-variable-pattern': null, // $変数でkebab-case以外も許容する
+    'percent-placeholder-pattern': null, // %placeholderでkebab-case以外も許容する
+    'at-extend-no-missing-placeholder': null, // @extendで%placeholder以外も許容する
   },
 };
