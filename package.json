@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "pro": "webpack --mode production",
-    "format": "eslint src --fix && prettier --write src"
+    "lint": "eslint --fix src && prettier --write src && stylelint --fix src"
   },
   "keywords": [],
   "browserslist": [
