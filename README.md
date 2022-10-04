@@ -27,7 +27,7 @@ $ npx gulp watch
 $ npx gulp compile
 ```
 
-### ESLintとPrettierを実行する
+### ESLint・Stylelint・Prettierを実行する
 ```
-$ npm run format
+$ npm run lint
 ```
