@@ -17,6 +17,6 @@ $base-font-size: 16;
 
 // vwをpxのように使う
 @function vw($vw-font-size, $viewport: 1280px) {
-  $per: math.div(removeUnit($vw-font-size), removeUnit($viewport));
+  $per: math.div(removeunit($vw-font-size), removeunit($viewport));
   @return $per * 100vw;
 }

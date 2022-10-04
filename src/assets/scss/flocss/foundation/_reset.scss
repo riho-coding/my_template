@@ -1,6 +1,7 @@
 /*! destyle.css v3.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 
 /* Reset box-model and set borders */
+
 /* ============================================ */
 
 *,
@@ -12,6 +13,7 @@
 }
 
 /* Document */
+
 /* ============================================ */
 
 /**
@@ -22,11 +24,12 @@
 
 html {
   line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -webkit-tap-highlight-color: transparent; /* 3*/
+  text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3 */
 }
 
 /* Sections */
+
 /* ============================================ */
 
 /**
@@ -46,6 +49,7 @@ main {
 }
 
 /* Vertical rhythm */
+
 /* ============================================ */
 
 p,
@@ -61,6 +65,7 @@ dl {
 }
 
 /* Headings */
+
 /* ============================================ */
 
 h1,
@@ -69,22 +74,24 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-size: inherit;
   font-weight: inherit;
-  margin: 0;
 }
 
 /* Lists (enumeration) */
+
 /* ============================================ */
 
 ul,
 ol {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 /* Lists (definition) */
+
 /* ============================================ */
 
 dt {
@@ -96,6 +103,7 @@ dd {
 }
 
 /* Grouping content */
+
 /* ============================================ */
 
 /**
@@ -106,11 +114,11 @@ dd {
 hr {
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
-  overflow: visible; /* 2 */
-  border-top-width: 1px;
   margin: 0;
+  overflow: visible; /* 2 */
   clear: both;
   color: inherit;
+  border-top-width: 1px;
 }
 
 /**
@@ -128,6 +136,7 @@ address {
 }
 
 /* Text-level semantics */
+
 /* ============================================ */
 
 /**
@@ -135,9 +144,9 @@ address {
  */
 
 a {
-  background-color: transparent;
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 /**
@@ -185,9 +194,9 @@ small {
 
 sub,
 sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 
@@ -200,6 +209,7 @@ sup {
 }
 
 /* Replaced content */
+
 /* ============================================ */
 
 /**
@@ -215,6 +225,7 @@ iframe {
 }
 
 /* Forms */
+
 /* ============================================ */
 
 /**
@@ -228,17 +239,17 @@ input,
 optgroup,
 select,
 textarea {
-  -webkit-appearance: none; /* 1 */
-  appearance: none;
-  vertical-align: middle;
-  color: inherit;
-  font: inherit;
-  background: transparent;
   padding: 0;
   margin: 0;
-  border-radius: 0;
+  font: inherit;
+  color: inherit;
   text-align: inherit;
   text-transform: inherit; /* 2 */
+  vertical-align: middle;
+  background: transparent;
+  border-radius: 0;
+  appearance: none; /* 1 */
+  appearance: none;
 }
 
 /**
@@ -246,12 +257,12 @@ textarea {
  */
 
 [type='checkbox'] {
-  -webkit-appearance: checkbox;
+  appearance: checkbox;
   appearance: checkbox;
 }
 
 [type='radio'] {
-  -webkit-appearance: radio;
+  appearance: radio;
   appearance: radio;
 }
 
@@ -298,9 +309,9 @@ option {
  */
 
 fieldset {
-  margin: 0;
-  padding: 0;
   min-width: 0;
+  padding: 0;
+  margin: 0;
 }
 
 legend {
@@ -345,7 +356,7 @@ textarea {
  */
 
 [type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 /**
@@ -354,7 +365,7 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
+  appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
 
@@ -367,6 +378,7 @@ label[for] {
 }
 
 /* Interactive */
+
 /* ============================================ */
 
 /*
@@ -394,6 +406,7 @@ summary {
 }
 
 /* Tables */
+
 /* ============================================ */
 
 /**
@@ -401,8 +414,8 @@ summary {
 */
 
 table {
-  border-color: inherit; /* 1 */
   border-collapse: collapse;
+  border-color: inherit; /* 1 */
 }
 
 caption {
@@ -411,11 +424,11 @@ caption {
 
 td,
 th {
-  vertical-align: top;
   padding: 0;
+  vertical-align: top;
 }
 
 th {
-  text-align: left;
   font-weight: bold;
+  text-align: left;
 }

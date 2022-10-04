@@ -5,27 +5,29 @@
  */
 
 .c-title {
-  font-family: $font-en-primary;
-  padding-left: 100px;
   position: relative;
+  padding-left: 100px;
+  font-family: $font-en-primary;
+
   &::before {
-    content: attr(data-number);
-    color: currentColor;
-    display: inline-block;
     position: absolute;
     top: 50%;
     left: 0;
+    display: inline-block;
+    color: currentcolor;
+    content: attr(data-number);
     transform: translateY(-50%);
   }
+
   &::after {
-    background-color: $accent-color-dark;
-    content: '';
-    width: fib(10);
-    height: 1px;
-    display: inline-block;
     position: absolute;
     top: 50%;
     left: 33px;
+    display: inline-block;
+    width: fib(10);
+    height: 1px;
+    content: '';
+    background-color: $accent-color-dark;
     transform: translateY(-50%);
   }
 }
