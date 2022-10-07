@@ -10,14 +10,14 @@ head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + meta[page]["type
 	link(rel="icon alternate" href=site["favicon_path"] sizes="64x64")
 	link(rel="apple-touch-icon" href=site["favicon_path_app"])
 	//- OGP
-	meta(property="og:url", content=site["url"] + meta[page]["slug"])
-	meta(property="og:title", content=meta[page]["title"])
-	meta(property="og:type", content=meta[page]["type"])
-	meta(property="og:site_name", content=site["name"])
-	meta(property="og:description", content=meta[page]["desc"])
-	meta(property="og:image" content=site["img"])
-	meta(property="og:image:width" content=site["imgWidth"])
-	meta(property="og:image:height" content=site["imgHeight"])
+	meta(property="og:url" content=site["url"] + meta[page]["slug"])
+	meta(property="og:title" content=meta[page]["title"])
+	meta(property="og:type" content=meta[page]["type"])
+	meta(property="og:site_name" content=site["name"])
+	meta(property="og:description" content=meta[page]["desc"])
+	meta(property="og:image" content=meta[page]["path"] + site["img"])
+	meta(property="og:image:width" content=site["img_width"])
+	meta(property="og:image:height" content=site["img_height"])
 	meta(property="og:local" content="ja_JP")
 	//- Site Base
 	title=meta[page]["title"]
@@ -28,9 +28,10 @@ head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + meta[page]["type
 	//- Font
 	link(rel="preconnect" href="https://fonts.googleapis.com")
 	link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous")
-	link(href=fonts["googleFont"] rel="preload" as="style")
-	link(href=fonts["googleFont"] rel="stylesheet" media="print" onload="this.media='all'")
+	link(href=fonts["google_font"] rel="preload" as="style")
+	link(href=fonts["google_font"] rel="stylesheet" media="print" onload="this.media='all'")
 	noscript
-		link(href=fonts["googleFont"] rel="stylesheet")
+		link(href=fonts["google_font"] rel="stylesheet")
 	//- CSS
+	link(rel="stylesheet" href=cdn["swiper"])
 	link(rel="stylesheet" href=meta[page]["path"] + "css/style.min.css" type="text/css" media='all')
