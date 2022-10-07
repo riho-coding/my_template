@@ -6,8 +6,9 @@ head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + meta[page]["type
 	meta(name="viewport" content="width=device-width, initial-scale=1.0")
 	meta(name="robots" content="noindex, nofollow")
 	//- Icon
-	link(rel="icon" href=site["faviconPath"] sizes="64x64")
-	link(rel="apple-touch-icon" href=site["faviconPathForApp"])
+	link(rel="mask-icon" href=site["favicon_path"] type="image/svg+xml" sizes="any")
+	link(rel="icon alternate" href=site["favicon_path"] sizes="64x64")
+	link(rel="apple-touch-icon" href=site["favicon_path_app"])
 	//- OGP
 	meta(property="og:url", content=site["url"] + meta[page]["slug"])
 	meta(property="og:title", content=meta[page]["title"])
