@@ -1,17 +1,25 @@
+@font-face {
+  font-family: 'gotham';
+  src: url(./fonts/GothamBold.woff2) format('woff2');
+  src: url(./fonts/GothamBold.woff) format('woff');
+}
+
 // 日本語フォント
 $Noto-Sans-jp: 'Noto Sans JP';
 
 // 英語フォント
 $Roboto: 'Roboto';
 $Montserrat: 'Montserrat';
+$Gotham: 'gotham';
 
-// サブセットフォント
+// サブフォント
 $sans-serif: 'Helvetica Neue', arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic', meiryo, sans-serif;
 $serif: '游明朝', yumincho, 'Hiragino Mincho ProN W3', 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝',
   serif;
 
 // Japanese
-$font-jp: $sans-serif;
+$font-jp: $Noto-Sans-jp, $sans-serif;
 
 // English
-$font-en-primary: $Roboto, $Montserrat;
+$font-en-primary: $Roboto, $Montserrat, $sans-serif;
+$font-en-secondary: $Gotham, $sans-serif;
