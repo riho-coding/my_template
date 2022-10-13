@@ -50,8 +50,8 @@ const paths = {
     dest: 'dist/img/',
   },
   fonts: {
-    src: 'src/assets/fonts/**/*.ttf',
-    dest: 'dist/img/',
+    src: 'src/assets/fonts/**/*',
+    dest: 'dist/fonts/',
   },
 };
 
