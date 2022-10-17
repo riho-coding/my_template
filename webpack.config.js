@@ -2,11 +2,15 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development', // 開発環境用
-  entry: './src/assets/js/script.js', // エントリーポイント
+  // エントリーポイント
+  entry: {
+    main: './src/assets/js/script.js',
+    swiper: './src/assets/js/swiper.js',
+  },
   // 出力ファイル
   output: {
     path: `${__dirname}/dist`,
-    filename: '[name].js', // [name]はgulpで設定
+    filename: '[name].bundle.js',
   },
 
   // モジュールの使用
