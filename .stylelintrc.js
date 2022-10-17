@@ -47,6 +47,5 @@ module.exports = {
     'scss/percent-placeholder-pattern': '^[a-z]+([a-z0-9-]+[a-z0-9]+)?$', // プレースホルダーは小文字で指定する
     'scss/at-mixin-pattern': '^[a-z]+([a-z0-9-]+[a-z0-9]+)?$', // mixinは小文字で指定する
     'scss/at-function-pattern': '^[a-z]+([a-z0-9-]+[a-z0-9]+)?$', // functionは小文字で指定する
-    'scss/no-global-function-names': null, // グローバル関数名を禁止しない
   },
 };
