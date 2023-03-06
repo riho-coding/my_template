@@ -6,27 +6,25 @@
 
 .l-header {
   padding: 20px 0;
+}
 
-  &__inner {
-    display: grid;
-    place-items: center;
-    width: min(100% - 80px, 1280px);
-    margin-inline: auto;
-  }
+.l-header__inner {
+  display: grid;
+  place-items: center;
+  width: min(100% - 80px, 1280px);
+  margin-inline: auto;
+}
 
-  &__title {
-    font-size: rem(40);
-    text-align: center;
-  }
+.l-header__title {
+  font-size: fluid(20, 32);
+  text-align: center;
+}
 
-  &__nav {
-    margin-top: 20px;
-    @include flex(space-between, center);
-  }
+.l-header__nav {
+  margin-top: 20px;
+  @include flex(space-between, center);
+}
 
-  &__nav-item {
-    + .l-header__nav-item {
-      margin-left: 40px;
-    }
-  }
+.l-header__nav-item + .l-header__nav-item {
+  margin-left: 40px;
 }
