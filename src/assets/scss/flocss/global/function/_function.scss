@@ -42,10 +42,10 @@ $viewport-max: 1280;
 @function fluid($min-font-size, $max-font-size) {
   $min-unit: rem($min-font-size);
   $max-unit: rem($max-font-size);
-  $min-number: divideroot($min-font-size);
-  $max-number: divideroot($max-font-size);
-  $min-breakpoint: divideroot($viewport-min);
-  $max-breakpoint: divideroot($viewport-max);
+  $min-number: divideRoot($min-font-size);
+  $max-number: divideRoot($max-font-size);
+  $min-breakpoint: divideRoot($viewport-min);
+  $max-breakpoint: divideRoot($viewport-max);
   $slope: math.div(($max-number - $min-number), ($max-breakpoint - $min-breakpoint));
   $calc-rem: ($min-breakpoint * -1 * $slope + $min-number) * 1rem;
   $calc-vw: ($slope * 100) * 1vw;
