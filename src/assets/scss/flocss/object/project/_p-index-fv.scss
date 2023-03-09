@@ -5,15 +5,14 @@
  */
 
 .p-index-fv {
-}
-
-.p-index-fv__visual {
-  source,
-  img {
-    display: block;
-    width: 640px;
-    max-width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+  &__visual {
+    source,
+    img {
+      display: block;
+      width: 640px;
+      max-width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }

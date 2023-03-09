@@ -1,11 +1,6 @@
 @use 'sass:math';
 
-// 初期設定
-$base-font-size: 16;
-$viewport-min: 360;
-$viewport-max: 1280;
-
-// 値から単位を削除する関数
+// 値から単位を削除する
 @function removeUnit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return math.div($number, ($number * 0 + 1));
@@ -13,46 +8,15 @@ $viewport-max: 1280;
   @return $number;
 }
 
-// remをpxのように使う関数
+// remをpxのように使う
+$base-font-size: 16;
+
 @function rem($rem-font-size) {
   @return math.div($rem-font-size, $base-font-size) * 1rem;
 }
 
-// e.q.
-// p {
-// 	font-size: rem(16);
-// }
-
-// vwをpxのように使う関数
-@function vw($vw-font-size, $viewport-max) {
+// vwをpxのように使う
+@function vw($vw-font-size, $viewport: 1280px) {
   $per: math.div(removeunit($vw-font-size), removeunit($viewport));
   @return $per * 100vw;
 }
-
-// e.q.
-// p {
-// 	font-size: vw(32);
-// }
-
-// pxをfluidに扱う関数
-@function divideRoot($number) {
-  @return math.div(removeUnit($number), $base-font-size);
-}
-
-@function fluid($min-font-size, $max-font-size) {
-  $min-unit: rem($min-font-size);
-  $max-unit: rem($max-font-size);
-  $min-number: divideRoot($min-font-size);
-  $max-number: divideRoot($max-font-size);
-  $min-breakpoint: divideRoot($viewport-min);
-  $max-breakpoint: divideRoot($viewport-max);
-  $slope: math.div(($max-number - $min-number), ($max-breakpoint - $min-breakpoint));
-  $calc-rem: ($min-breakpoint * -1 * $slope + $min-number) * 1rem;
-  $calc-vw: ($slope * 100) * 1vw;
-  @return clamp($min-unit, $calc-rem + $calc-vw, $max-unit);
-}
-
-// e.q.
-// p {
-// 	font-size: fluid(10, 16);
-// }
