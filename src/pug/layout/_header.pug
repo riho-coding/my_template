@@ -2,5 +2,9 @@
 
 header.l-header
 	.l-header__inner
-		h1.l-header__title.u-uppercase My Template
+		if page == "top"
+			h1.l-header__title.u-uppercase My Template
+		else if page !== "top"
+			p.l-header__title.u-uppercase My Template
+
 		block global_navigation
