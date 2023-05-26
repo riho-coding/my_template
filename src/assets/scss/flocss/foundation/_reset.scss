@@ -247,8 +247,7 @@ textarea {
   text-transform: inherit; /* 2 */
   vertical-align: middle;
   background: transparent;
-  border-radius: 0;
-  appearance: none; /* 1 */
+  border-radius: 0; /* 1 */
   appearance: none;
 }
 
@@ -258,11 +257,9 @@ textarea {
 
 [type='checkbox'] {
   appearance: checkbox;
-  appearance: checkbox;
 }
 
 [type='radio'] {
-  appearance: radio;
   appearance: radio;
 }
 
