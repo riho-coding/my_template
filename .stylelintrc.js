@@ -45,7 +45,6 @@ module.exports = {
     'scss/dollar-variable-pattern': null, // 変数でkebab-case以外も許容する
     'scss/at-extend-no-missing-placeholder': true, // @extendを使用する際はプレースホルダーを使用する
     'scss/percent-placeholder-pattern': '^[a-z]+([a-z0-9-]+[a-z0-9]+)?$', // プレースホルダーは小文字で指定する
-    'scss/at-mixin-pattern': '^[a-z]+([a-z0-9-]+[a-z0-9]+)?$', // mixinは小文字で指定する
-    'scss/at-function-pattern': '^[a-z]+([a-z0-9-]+[a-z0-9]+)?$', // functionは小文字で指定する
+    'function-url-quotes': 'always', // url関数の引数に必ず引用符をつける
   },
 };
