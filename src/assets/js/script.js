@@ -1,19 +1,32 @@
 'use strict';
 
 // **
-// * 360px未満のデバイスはviewportの書き換えで対応
+// * 360px以下、1401px以上のデバイスはviewportの書き換えで対応
 // *
 
 !(function () {
+  // metaタグの内、name属性が"viewport"である要素を取得する
   const viewport = document.querySelector('meta[name="viewport"]');
+
+  // viewportのwidthを変更するための関数を定義する
   function switchViewport() {
-    const value = window.outerWidth > 360 ? 'width=device-width,initial-scale=1' : 'width=360';
+    // ブラウザウィンドウの外側の幅を取得する
+    const width = window.outerWidth;
+
+    // 幅が375px以下の場合、'width=375'
+    // 幅が1400pxより大きい場合、'width=1400'
+    // それ以外の場合、'width=device-width,initial-scale=1'を設定する
+    const value = width <= 375 ? 'width=375' : width > 1400 ? 'width=1400' : 'width=device-width,initial-scale=1';
+
+    // viewportのcontent属性がvalueと異なる時のみ更新する
     if (viewport.getAttribute('content') !== value) {
       viewport.setAttribute('content', value);
     }
   }
+
+  //リサイズイベントを監視し、switchViewport関数を呼び出す
   addEventListener('resize', switchViewport, false);
-  switchViewport();
+  switchViewport(); // 初期化
 })();
 
 // **
