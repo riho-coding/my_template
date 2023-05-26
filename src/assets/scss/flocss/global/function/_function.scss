@@ -3,7 +3,7 @@
 // 初期設定
 $base-font-size: 16;
 $viewport-min: 360;
-$viewport-max: 1440;
+$viewport-max: 1400;
 
 // 値から単位を削除する関数
 @function remove-unit($number) {
