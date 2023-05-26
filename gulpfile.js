@@ -53,6 +53,10 @@ const paths = {
     src: 'src/assets/fonts/**/*',
     dest: 'dist/fonts/',
   },
+  favicon: {
+    src: 'src/assets/favicon/**/*',
+    dest: 'dist/',
+  },
 };
 
 /**
@@ -172,6 +176,14 @@ function browserReload(done) {
 }
 
 /**
+ * Favicon
+ */
+
+function copyFavicon() {
+  return gulp.src(paths.favicon.src).pipe(gulp.dest(paths.favicon.dest));
+}
+
+/**
  * Update dist file
  */
 
@@ -191,7 +203,11 @@ exports.compressImg = compressImg;
 exports.compileFonts = compileFonts;
 exports.update = update;
 exports.bundleJS = bundleJS;
+exports.copyFavicon = copyFavicon;
 
 exports.watch = gulp.parallel(browserInit, watch);
-exports.compile = gulp.parallel(compilePug, compressImg, compileFonts, compileSass);
-exports.default = gulp.series(update, gulp.parallel(browserInit, compilePug, compressImg, compileFonts, compileSass, bundleJS, watch));
+exports.compile = gulp.parallel(compilePug, compressImg, compileFonts, compileSass, copyFavicon);
+exports.default = gulp.series(
+  update,
+  gulp.parallel(browserInit, compilePug, compressImg, copyFavicon, compileFonts, compileSass, bundleJS, watch)
+);
