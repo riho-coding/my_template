@@ -56,3 +56,48 @@ $viewport-max: 1400;
 // p {
 // 	font-size: fluid(10, 16);
 // }
+
+// gapプロパティを使わずに、Flexboxで余白をつける
+@mixin flex-tile($column-number: 3, $column-gap: 20px, $row-gap: 20px, $flex-direction: row) {
+  // $column-numberが数値(単位なし)以外のとき、エラーを返す
+  @if type-of($column-number) != 'number' or not unitless($column-number) {
+    @error '第1引数は必ず数値(単位なし)で指定してください。';
+  }
+
+  $less: $column-number - 1;
+  $more: $column-number + 1;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  // flex-direction: row;（初期値）の記述は省略する
+  @if $flex-direction == row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  & > * {
+    width: calc((100% - (#{$column-gap} * #{$less})) / #{$column-number});
+  }
+
+  // 詳細度を上げた状態で(これ以降に出現するものと、詳細度を同じ条件に揃えて)マージンを一旦リセットする
+  & > *:nth-child(n) {
+    margin: 0;
+  }
+
+  & > *:not(:nth-child(#{$column-number}n + 1)) {
+    @if $flex-direction == row-reverse {
+      margin-right: #{$column-gap};
+    } @else {
+      margin-left: #{$column-gap};
+    }
+  }
+
+  & > *:nth-child(n + #{$more}) {
+    margin-top: #{$row-gap};
+  }
+}
+
+// e.q.
+// li {
+//   @include flex-tile(4, 20px, 40px);
+// }
