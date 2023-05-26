@@ -4,6 +4,7 @@ node_modules
 *.swp
 *.db
 ._*
+dist/
 
 # Mac
 .Spotlight-V100
