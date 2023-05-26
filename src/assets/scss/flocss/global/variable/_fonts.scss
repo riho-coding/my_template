@@ -1,7 +1,9 @@
 @font-face {
-  font-family: 'gotham';
-  src: url(./fonts/GothamBold.woff2) format('woff2');
-  src: url(./fonts/GothamBold.woff) format('woff');
+  font-family: gotham;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/GothamBold.woff2') format('woff2');
+  src: url('./fonts/GothamBold.woff') format('woff');
 }
 
 // 日本語フォント
