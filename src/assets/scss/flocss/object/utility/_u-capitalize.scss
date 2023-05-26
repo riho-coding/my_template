@@ -1,0 +1,10 @@
+@use '../../global' as *;
+
+/**
+ * u-capitalize
+ * 先頭の文字のみを大文字にする
+ */
+
+.u-capitalize {
+  text-transform: capitalize;
+}
