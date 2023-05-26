@@ -22,7 +22,9 @@ const gulp = require('gulp'),
   minImg = require('gulp-imagemin'),
   minPng = require('imagemin-pngquant'),
   minJpg = require('imagemin-mozjpeg'),
-  minSvg = require('imagemin-svgo');
+  minSvg = require('imagemin-svgo'),
+  toWoff = require('gulp-ttf2woff'),
+  toWoff2 = require('gulp-ttf2woff2');
 
 const path = require('path'),
   named = require('vinyl-named'),
@@ -52,6 +54,7 @@ const paths = {
   fonts: {
     src: 'src/assets/fonts/**/*',
     dest: 'dist/fonts/',
+    ttf: 'dist/fonts/**/*.ttf',
   },
   favicon: {
     src: 'src/assets/favicon/**/*',
@@ -87,7 +90,10 @@ function compileSass() {
  */
 
 function compileFonts() {
-  return gulp.src(paths.fonts.src).pipe(gulp.dest(paths.fonts.dest));
+  const convertWoff = gulp.src(paths.fonts.src).pipe(toWoff()).pipe(gulp.dest(paths.fonts.dest));
+  const convertWoff2 = gulp.src(paths.fonts.src).pipe(toWoff2()).pipe(gulp.dest(paths.fonts.dest));
+  Promise.all([convertWoff, convertWoff2]);
+  del(paths.fonts.ttf, { force: true });
 }
 
 /**
@@ -188,7 +194,7 @@ function copyFavicon() {
  */
 
 function update() {
-  return del('./dist/**', { force: true });
+  return del('dist/**', { force: true });
 }
 
 /**
