@@ -1,37 +1,67 @@
-//- head
+//- layout/_head.pug
+
 head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + meta[page]["type"] + ": http://ogp.me/ns/" + meta[page]["type"] + "#")
+	//- 文字セット "UTF-8"を定義する
 	meta(charset="UTF-8")
-	meta(http-equiv="X-UA-Compatible" content="IE=edge")
-	meta(name="format-detection" content="telephone=no")
+	//- スマホに最適化されたビューポート設定（ビューポート幅の100%に設定、ページの表示倍率は1.0）
 	meta(name="viewport" content="width=device-width, initial-scale=1.0")
-	meta(name="robots" content="noindex, nofollow")
-	//- Icon
-	link(rel="mask-icon" href=meta[page]["path"] + site["favicon_path"] + ".svg" type="image/svg+xml" sizes="any")
-	link(rel="icon alternate" href=meta[page]["path"] + site["favicon_path"] + ".ico")
-	link(rel="apple-touch-icon" href=meta[page]["path"] + site["favicon_path_app"] sizes="180x180")
-	//- OGP
-	meta(property="og:url" content=site["url"] + meta[page]["slug"])
-	meta(property="og:title" content=meta[page]["title"])
-	meta(property="og:type" content=meta[page]["type"])
-	meta(property="og:site_name" content=site["name"])
-	meta(property="og:description" content=meta[page]["desc"])
-	meta(property="og:image" content=meta[page]["path"] + site["img_path"])
-	meta(property="og:image:width" content=site["img_width"])
-	meta(property="og:image:height" content=site["img_height"])
-	meta(property="og:local" content="ja_JP")
-	//- Site Base
+	//- 電話番号の自動リンク機能は停止する
+	meta(name="format-detection" content="telephone=no")
+	//- 検索エンジンのクロールとインデックス作成の動作を制御する
+	meta(name="robots" content=site["crawl_and_index"])
+	meta(name="googlebot" content=site["crawl_and_index"])
+	//- WebサイトをWebアプリとして利用する時のみ記述する
+	meta(name="application-name" content=site["app_name"])
+	//- サイトタイトル
 	title=meta[page]["title"]
+	//- サイトの説明文（150字まで）
 	meta(name="description" content=meta[page]["desc"])
-	meta(name="theme-color" content=site["color"])
+	//- Chrome, Firefox OS, Operaのテーマカラー
+	meta(name="theme-color" content=meta[page]["color"])
+	//- ライトモード時のテーマカラー
 	meta(name="theme-color" media="(prefers-color-scheme: light)" content=site["lightModeColor"])
+	//- ダークモード時のテーマカラー
 	meta(name="theme-color" media="(prefers-color-scheme: dark)" content=site["darkModeColor"])
-	//- Font
+	//- SVGファビコン
+	link(rel="mask-icon" href=meta[page]["path"] + site["favicon_path"] + ".svg" type="image/svg+xml" sizes="any")
+	//- ico OR pngファビコン
+	link(rel="shortcut icon" href=meta[page]["path"] + site["favicon_path"] + ".ico" type="image/x-icon")
+	//- app touch icon
+	link(rel="apple-touch-icon" href=meta[page]["path"] + site["favicon_path_app"] sizes="180x180")
+	//- OGP ページタイトル（記事のタイトル）
+	meta(property="og:title" content=meta[page]["title"])
+	//- OGP ページタイプ（website OR article OR profile）
+	meta(property="og:type" content=meta[page]["type"])
+	//- OGP シェア時のURL（絶対パス ※指定しない場合は自動取得）
+	meta(property="og:url" content=site["url"] + meta[page]["slug"])
+	//- OGP サポートする言語
+	meta(property="og:local" content="ja_JP")
+	//- OGP サイト名
+	meta(property="og:site_name" content=site["name"])
+	//- OGP ページ説明
+	meta(property="og:description" content=meta[page]["desc"])
+	//- OGP シェア時に表示する画像（絶対パス ※1200x630px推奨）
+	meta(property="og:image" content=meta[page]["path"] + meta[page]["img_path"])
+	//- OGP シェア時に表示する画像のwidth
+	meta(property="og:image:width" content=meta[page]["img_width"])
+	//- OGP シェア時に表示する画像のheight
+	meta(property="og:image:height" content=meta[page]["img_height"])
+	//- OGP:FacebookのApp ID（Facebook for developersで取得可能）
+	meta(property="fb:app_id" content=site["facebook_app_id"])
+	//- OGP:TwitterのURL
+	meta(name="twitter:creator" content=site["twitter_url"])
+	//- OGP:TwitterのユーザーID
+	meta(name="twitter:site" content=site["twitter_user_ID"])
+	//- OGP:Twitterのカードサイズ
+	meta(name="twitter:card" content=meta[page]["twitter_card_size"])
+	//- Google Font読み込み
 	link(rel="preconnect" href="https://fonts.googleapis.com")
 	link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous")
 	link(href=fonts["google_font"] rel="preload" as="style")
 	link(href=fonts["google_font"] rel="stylesheet" media="print" onload="this.media='all'")
 	noscript
 		link(href=fonts["google_font"] rel="stylesheet")
-	//- CSS
+	//- CDN読み込み
 	link(rel="stylesheet" href=cdn["swiper"])
+	//- CSSファイル読み込み
 	link(rel="stylesheet" href=meta[page]["path"] + "css/style.min.css" type="text/css" media='all')
