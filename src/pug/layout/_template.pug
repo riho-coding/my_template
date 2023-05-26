@@ -1,4 +1,4 @@
-//- template.pug
+//- layout/_template.pug
 
 include ../data/_data
 block variable
@@ -6,7 +6,7 @@ block variable
 doctype html
 html(lang="ja")
 	include ./_head
-	body
+	body(class=meta[page]["class"])
 		.l-wrapper
 			include ./_header
 			block main
