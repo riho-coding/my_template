@@ -24,7 +24,9 @@ const gulp = require('gulp'),
   minJpg = require('imagemin-mozjpeg'),
   minSvg = require('imagemin-svgo'),
   toWoff = require('gulp-ttf2woff'),
-  toWoff2 = require('gulp-ttf2woff2');
+  toWoff2 = require('gulp-ttf2woff2'),
+  change = require('gulp-changed'),
+  webp = require('gulp-webp');
 
 const path = require('path'),
   named = require('vinyl-named'),
@@ -49,6 +51,7 @@ const paths = {
   },
   img: {
     src: 'src/assets/img/**/*',
+    noWebp: 'src/assets/img/**/!(*.webp)',
     dest: 'dist/img/',
   },
   fonts: {
@@ -158,6 +161,22 @@ function compressImg() {
 }
 
 /**
+ * WebP
+ */
+
+function exportWebP() {
+  return gulp
+    .src(paths.img.noWebp)
+    .pipe(
+      webp({
+        quality: 65,
+        method: 6,
+      })
+    )
+    .pipe(gulp.dest(paths.img.dest));
+}
+
+/**
  * Watch
  */
 
@@ -210,10 +229,12 @@ exports.compileFonts = compileFonts;
 exports.update = update;
 exports.bundleJS = bundleJS;
 exports.copyFavicon = copyFavicon;
+exports.exportWebP = exportWebP;
+
 
 exports.watch = gulp.parallel(browserInit, watch);
-exports.compile = gulp.parallel(compilePug, compressImg, compileFonts, compileSass, copyFavicon);
+exports.compile = gulp.parallel(compilePug, compressImg, exportWebP, compileFonts, compileSass, copyFavicon);
 exports.default = gulp.series(
   update,
-  gulp.parallel(browserInit, compilePug, compressImg, copyFavicon, compileFonts, compileSass, bundleJS, watch)
+  gulp.parallel(browserInit, compilePug, compressImg, exportWebP, copyFavicon, compileFonts, compileSass, bundleJS, watch)
 );
