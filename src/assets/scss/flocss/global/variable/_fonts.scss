@@ -1,18 +1,33 @@
 @font-face {
   font-family: gotham;
+  font-style: bold;
+  font-weight: 700;
+  src: url('./fonts/Gotham-Bold.woff2') format('woff2');
+  src: url('./fonts/Gotham-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: quicksand;
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/GothamBold.woff2') format('woff2');
-  src: url('./fonts/GothamBold.woff') format('woff');
+  src: url('./fonts/Quicksand-Regular.woff2') format('woff2');
+  src: url('./fonts/Quicksand-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: quicksand;
+  font-style: bold;
+  font-weight: 700;
+  src: url('./fonts/Quicksand-Bold.woff2') format('woff2');
+  src: url('./fonts/Quicksand-Bold.woff') format('woff');
 }
 
 // 日本語フォント
 $Noto-Sans-jp: 'Noto Sans JP';
 
 // 英語フォント
-$Roboto: 'Roboto';
-$Montserrat: 'Montserrat';
 $Gotham: 'gotham';
+$Quicksand: 'quicksand';
 
 // サブフォント
 $sans-serif: 'Helvetica Neue', arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic', meiryo, sans-serif;
@@ -23,5 +38,5 @@ $serif: '游明朝', yumincho, 'Hiragino Mincho ProN W3', 'ヒラギノ明朝 Pr
 $font-jp: $Noto-Sans-jp, $sans-serif;
 
 // English
-$font-en-primary: $Roboto, $Montserrat, $sans-serif;
+$font-en-primary: $Quicksand, $sans-serif;
 $font-en-secondary: $Gotham, $sans-serif;

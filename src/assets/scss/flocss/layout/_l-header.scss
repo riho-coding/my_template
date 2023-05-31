@@ -16,13 +16,14 @@
 }
 
 .l-header__title {
-  font-family: $font-en-primary;
+  font-family: $font-en-secondary;
   font-size: rem(40);
   text-align: center;
 }
 
 .l-header__nav {
   margin-top: 20px;
+  font-family: $font-en-primary;
   @include flex(space-between, center);
 }
 
